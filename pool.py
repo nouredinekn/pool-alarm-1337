@@ -35,9 +35,9 @@ CORS(app)
 
 
 # Pushover API credentials for alarm notifications
-user_key = "u5i4poit44878bxver7pmr3jr3yfz5"
-api_token = "aiszpv6jokbf738i4emymomf1kdipg"
-device_name = "delone"
+user_key = "user key"
+api_token = "api token"
+device_name = "device name"
 pushover_url = "https://api.pushover.net/1/messages.json"
 
 alarm_thread = None
