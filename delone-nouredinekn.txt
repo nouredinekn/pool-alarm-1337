@@ -1,0 +1,10 @@
+Bach takhd telegram Id: @username_to_id_bot
+
+Bach t9ad bot: @BotFather
+Extantion Google :
+https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en&pli=1
+
+
+
+Extantion Firefox:
+https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
