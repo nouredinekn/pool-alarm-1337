@@ -140,7 +140,7 @@ function checkForTextInHTML() {
     const foundmaintenance = htmlContent.includes(maintenance);
 
     // ✅ NEW: check if any keyword exists in the page
-    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat","captcha", "recaptcha", "robot", "anchor"].some(word =>
+    const poolKeywordFound = [ "Tetouan", "Benguerrir", "Rabat","captcha", "recaptcha",  "anchor"].some(word =>
         htmlContent.toLowerCase().includes(word.toLowerCase())
     );
 
