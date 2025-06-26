@@ -128,31 +128,38 @@
         return loadingText || spinningSvg;
     }
 
-    function checkForTextInHTML() {
-        const htmlContent = document.documentElement.innerHTML;
-        const target = "Any available Pool will appear here";
+function checkForTextInHTML() {
+    const htmlContent = document.documentElement.innerHTML;
+    const target = "Any available Pool will appear here";
 
-        const found = htmlContent.includes(target);
+    const found = htmlContent.includes(target);
 
-        if (!found && !notified) {
-            console.log("🟢 Pool MAY be available (text not found).");
+    // ✅ NEW: check if any keyword exists in the page
+    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat"].some(word =>
+        htmlContent.toLowerCase().includes(word.toLowerCase())
+    );
 
-            if (window.location.href === "https://admission.1337.ma/users/sign_in") {
-                console.log('On login page, triggering performFormLogin...');
-                performFormLogin();
-            } else {
-                notified = true;
-                sendTelegramMessage(`🔔 Pool MAY be available!\nURL: ${window.location.href}`);
-            }
+    // ✅ Updated condition: text NOT found OR keyword found
+    if ((!found || poolKeywordFound) && !notified) {
+        console.log("🟢 Pool MAY be available (text not found OR keyword found)");
+
+        if (window.location.href === "https://admission.1337.ma/users/sign_in") {
+            console.log('On login page, triggering performFormLogin...');
+            performFormLogin();
         } else {
-            const alars = 'http://127.0.0.1:5000/stop';
-            fetch(alars)
-                .then(response => console.log('stop:', response.status))
-                .catch(err => console.error('stop:', err));
-
-            console.log("❌ No pool: Found text -", target);
+            notified = true;
+            sendTelegramMessage(`🔔 Pool MAY be available!\nURL: ${window.location.href}`);
         }
+    } else {
+        const alars = 'http://127.0.0.1:5000/stop';
+        fetch(alars)
+            .then(response => console.log('stop:', response.status))
+            .catch(err => console.error('stop:', err));
+
+        console.log("❌ No pool: Found text -", target);
     }
+}
+
 
     function scrollPage() {
         currentPosition += scrollStep;
