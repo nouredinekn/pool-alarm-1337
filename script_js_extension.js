@@ -135,7 +135,10 @@ function checkForTextInHTML() {
     const found = htmlContent.includes(target);
 
     // Added 'captcha' keyword here
-    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat", "captcha"].some(word =>
+    const poolKeywordFound = keywords = [
+        "REGISTER", "Tetouan", "Benguerrir", "Rabat",
+        "captcha", "recaptcha", "robot", "anchor"
+    ].some(word =>
         htmlContent.toLowerCase().includes(word.toLowerCase())
     );
 
