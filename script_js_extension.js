@@ -134,12 +134,11 @@ function checkForTextInHTML() {
 
     const found = htmlContent.includes(target);
 
-    // ✅ NEW: check if any keyword exists in the page
-    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat"].some(word =>
+    // Added 'captcha' keyword here
+    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat", "captcha"].some(word =>
         htmlContent.toLowerCase().includes(word.toLowerCase())
     );
 
-    // ✅ Updated condition: text NOT found OR keyword found
     if ((!found || poolKeywordFound) && !notified) {
         console.log("🟢 Pool MAY be available (text not found OR keyword found)");
 
