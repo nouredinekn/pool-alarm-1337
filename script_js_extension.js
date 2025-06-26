@@ -132,17 +132,20 @@ function checkForTextInHTML() {
     const htmlContent = document.documentElement.innerHTML;
     const target = "Any available Pool will appear here";
 
-    const found = htmlContent.includes(target);
 
-    // Added 'captcha' keyword here
-    const poolKeywordFound = keywords = [
-        "REGISTER", "Tetouan", "Benguerrir", "Rabat",
-        "captcha", "recaptcha", "robot", "anchor"
-    ].some(word =>
+    const found = htmlContent.includes(target);
+    const maintenance = "go have some rest";
+
+
+    const foundmaintenance = htmlContent.includes(maintenance);
+
+    // ✅ NEW: check if any keyword exists in the page
+    const poolKeywordFound = ["REGISTER", "Tetouan", "Benguerrir", "Rabat","captcha", "recaptcha", "robot", "anchor"].some(word =>
         htmlContent.toLowerCase().includes(word.toLowerCase())
     );
 
-    if ((!found || poolKeywordFound) && !notified) {
+    // ✅ Updated condition: text NOT found OR keyword found
+    if (((!found&&!foundmaintenance ) || poolKeywordFound) && !notified) {
         console.log("🟢 Pool MAY be available (text not found OR keyword found)");
 
         if (window.location.href === "https://admission.1337.ma/users/sign_in") {
