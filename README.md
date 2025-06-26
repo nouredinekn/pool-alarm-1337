@@ -68,7 +68,7 @@ cryptography
 ### 3. 📜 Add and Configure User Script
 
 1. Click Tampermonkey icon → Create New Script
-2. Paste `script_js_extension.txt`
+2. Paste `script_js_extension.js`
 3. Replace:
 
    * `telegramBotToken = 'YOUR_BOT_TOKEN'`
@@ -110,7 +110,7 @@ Server Endpoints:
 ```
 📁 pool-alarm-1337/
 ├── pool.py            # Flask server (alarm logic)
-├── script_js_extension.txt  # Tampermonkey automation script
+├── script_js_extension.js  # Tampermonkey automation script
 ├── requirements.txt            # Python package requirements
 ├── README.md                   # Full project documentation
 ```
